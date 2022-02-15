@@ -1,7 +1,19 @@
 package com.metrobuschallenge.controller;
 
+import com.metrobuschallenge.entity.Alcaldia;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.media.ArraySchema;
+import io.swagger.v3.oas.annotations.media.Content;
+import io.swagger.v3.oas.annotations.media.Schema;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import io.swagger.v3.oas.annotations.responses.ApiResponses;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
+
+import java.util.List;
 
 /**
  * Controlador principal para los servicios de alcaldias
@@ -11,5 +23,26 @@ import org.springframework.web.bind.annotation.RestController;
  */
 @RestController
 @RequestMapping(value = {"/codechallenge/api/v1/alcaldias"}, produces = {"application/json"})
-public class AlcaldiaControllerImpl {
+public class AlcaldiaControllerImpl implements AlcaldiaController{
+
+    @Override
+    @Operation(
+            summary = "Busca lista de alcaldia",
+            description = "Busca lista de alcaldias por disponibilidad",
+            responses = {@ApiResponse(
+                    responseCode = "200",
+                    description = "Respuesta a la request de alcaldia disponibles",
+                    content = {
+                            @Content(
+                                    mediaType = "application/json",
+                                    array = @ArraySchema(schema = @Schema(implementation = Alcaldia.class))
+                            )
+                    })
+            }
+    )
+    @ResponseStatus(HttpStatus.OK)
+    @RequestMapping(method = {RequestMethod.GET}, produces = {"application/json"})
+    public List<Alcaldia> getAlcadiasDisponible() {
+        return null;
+    }
 }

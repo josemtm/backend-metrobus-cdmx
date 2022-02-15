@@ -1,5 +1,6 @@
 package com.metrobuschallenge.entity;
 
+import com.vividsolutions.jts.geom.Point;
 import lombok.Data;
 import org.hibernate.annotations.GenericGenerator;
 
@@ -18,7 +19,7 @@ public class Unidad {
     private Alcaldia alcaldiaActual;
     @NotNull(message = "Ubicacion es necesario")
     @OneToOne(cascade = CascadeType.ALL, orphanRemoval = true)
-    private GeoPoint ubicacion;
+    private Punto ubicacion;
     @NotNull(message = "Disponibilidad es necesaria")
     private Boolean disponible;
 }

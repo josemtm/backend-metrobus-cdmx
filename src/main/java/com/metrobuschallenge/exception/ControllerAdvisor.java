@@ -38,6 +38,22 @@ public class ControllerAdvisor extends ResponseEntityExceptionHandler {
 
         return new ResponseEntity<>(body, HttpStatus.NOT_FOUND);
     }
+    /**
+     * Method for handle exception
+     * @param ex
+     * @param request
+     * @return response
+     * @since 1.0
+     */
+    @ExceptionHandler(ThirdPartyRequestException.class)
+    public ResponseEntity<Object> handleThirdPartyRequestException(
+            ThirdPartyRequestException ex, WebRequest request) {
 
+        Map<String, Object> body = new LinkedHashMap<>();
+        body.put("timestamp", LocalDateTime.now());
+        body.put("message", "no se pudo realziar la consulta");
+
+        return new ResponseEntity<>(body, HttpStatus.SERVICE_UNAVAILABLE);
+    }
 
 }

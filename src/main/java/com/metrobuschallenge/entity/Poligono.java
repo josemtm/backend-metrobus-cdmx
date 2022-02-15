@@ -1,5 +1,6 @@
 package com.metrobuschallenge.entity;
 
+import com.vividsolutions.jts.geom.Polygon;
 import lombok.Data;
 import org.hibernate.annotations.GenericGenerator;
 
@@ -8,17 +9,13 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.validation.constraints.NotNull;
 
-
-@Data
 @Entity
-public class GeoPoint {
+@Data
+public class Poligono {
     @Id
     @GeneratedValue(generator="uuid2")
     @GenericGenerator(name="uuid2",strategy = "uuid2")
     private String id;
-    @NotNull(message = "Latitud es necesario")
-    private Double latitud;
-    @NotNull(message = "Longitud es necesario")
-    private Double longitud;
-
+    @NotNull(message = "Polygon es necesario")
+    private Polygon polygon;
 }

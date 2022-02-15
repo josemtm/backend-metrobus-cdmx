@@ -71,6 +71,11 @@
 			<artifactId>springdoc-openapi-data-rest</artifactId>
 			<version>1.6.4</version>
 		</dependency>
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-spatial</artifactId>
+			<version>5.2.12.Final</version>
+		</dependency>
 
 	</dependencies>
 
