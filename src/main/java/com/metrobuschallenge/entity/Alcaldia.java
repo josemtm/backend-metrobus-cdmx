@@ -25,4 +25,6 @@ public class Alcaldia {
     private Poligono limite;
     @NotNull(message = "Estado de alcaldia es necesario")
     private Boolean disponible;
+
+
 }

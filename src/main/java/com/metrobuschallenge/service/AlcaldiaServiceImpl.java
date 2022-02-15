@@ -51,7 +51,10 @@ public class AlcaldiaServiceImpl implements AlcaldiaService{
         return this.repositorio.findAll(/* sortByIdAsc()*/);
     }
 
-
+    @Override
+    public List<Alcaldia> findAllByDisponible(Boolean disponible) {
+        return this.repositorio.findAllByDisponible(disponible);
+    }
 
 
 }

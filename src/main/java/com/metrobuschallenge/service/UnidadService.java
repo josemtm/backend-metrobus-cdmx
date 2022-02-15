@@ -15,4 +15,10 @@ public interface UnidadService {
     List<Unidad> findAll();
 
     void deleteAll();
+
+    List<Unidad> saveAll(List<Unidad> unidades);
+
+    List<Unidad> findAllByDisponible(Boolean disponible);
+
+    List<Unidad> findAllByAlcaldia(Alcaldia alcaldia);
 }

@@ -1,5 +1,6 @@
 package com.metrobuschallenge.service;
 
+import com.metrobuschallenge.entity.Alcaldia;
 import com.metrobuschallenge.entity.Unidad;
 import com.metrobuschallenge.exception.ObjectNotFoundException;
 import com.metrobuschallenge.repository.UnidadRepository;
@@ -45,6 +46,21 @@ public class UnidadServiceImpl implements UnidadService{
     @Override
     public void deleteAll() {
         this.repositorio.deleteAll();
+    }
+
+    @Override
+    public List<Unidad> saveAll(List<Unidad> unidades) {
+        return repositorio.saveAll(unidades);
+    }
+
+    @Override
+    public List<Unidad> findAllByDisponible(Boolean disponible) {
+        return this.repositorio.findAllByDisponible(disponible);
+    }
+
+    @Override
+    public List<Unidad> findAllByAlcaldia(Alcaldia alcaldia) {
+        return this.repositorio.findAllByAlcaldia(alcaldia);
     }
 
 

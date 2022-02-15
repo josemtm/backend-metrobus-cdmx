@@ -22,4 +22,10 @@ public class Unidad {
     private Punto ubicacion;
     @NotNull(message = "Disponibilidad es necesaria")
     private Boolean disponible;
+
+    void determinarAlcaldia(Alcaldia alcaldia){
+        if(alcaldia.getLimite().getPolygon().contains(ubicacion.getPoint())){
+            this.alcaldiaActual=alcaldia;
+        }
+    }
 }

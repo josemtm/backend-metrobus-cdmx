@@ -1,6 +1,7 @@
 package com.metrobuschallenge.entity;
 
 import com.vividsolutions.jts.geom.Point;
+import lombok.Data;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.Entity;
@@ -9,6 +10,7 @@ import javax.persistence.Id;
 import javax.validation.constraints.NotNull;
 
 @Entity
+@Data
 public class Punto {
     @Id
     @GeneratedValue(generator="uuid2")

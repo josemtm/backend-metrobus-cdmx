@@ -15,6 +15,7 @@ public interface AlcaldiaService {
 
     List<Alcaldia> findAll();
 
+    List<Alcaldia> findAllByDisponible(Boolean disponible);
 
 
 }
