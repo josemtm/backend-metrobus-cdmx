@@ -83,6 +83,7 @@
 				</configuration>
 			</plugin>
 		</plugins>
+		<finalName>spring-challenge</finalName>
 	</build>
 
 </project>

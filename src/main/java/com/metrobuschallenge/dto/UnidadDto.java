@@ -1,12 +1,6 @@
 package com.metrobuschallenge.dto;
 
 import lombok.Data;
-import org.hibernate.annotations.GenericGenerator;
-
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.ManyToOne;
-import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 
 /**

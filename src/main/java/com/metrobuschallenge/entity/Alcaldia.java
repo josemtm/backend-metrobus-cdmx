@@ -1,16 +1,10 @@
 package com.metrobuschallenge.entity;
 
-import com.vividsolutions.jts.geom.Polygon;
-import lombok.Data;
-import org.hibernate.annotations.GenericGenerator;
-import org.hibernate.annotations.Type;
 
+import lombok.Data;
 import javax.persistence.*;
-import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Size;
 import java.io.Serializable;
-import java.util.List;
 
 /**
  * Clase de entidad Alcaldia

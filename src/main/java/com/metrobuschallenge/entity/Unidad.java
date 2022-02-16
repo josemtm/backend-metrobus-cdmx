@@ -7,8 +7,6 @@ import com.vividsolutions.jts.geom.Polygon;
 import com.vividsolutions.jts.io.ParseException;
 import com.vividsolutions.jts.io.WKTReader;
 import lombok.Data;
-import org.hibernate.annotations.GenericGenerator;
-
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.io.Serializable;
@@ -44,7 +42,7 @@ public class Unidad implements Serializable {
     private Boolean disponible;
     /**
      *  Metodo usado para determinar alcaldia en la que se encuentra una unidad, se determina por medio una operacion geometrica
-     *  que verifica si un punto de coordenadas se encuentra dentro de los limites poligonales de al alcaldia
+     *  que verifica si un punto de coordenadas se encuentra dentro de los limites poligonales de alcaldia
      * @param alcaldias lista de tipo Alcaldia
      * @since 1.0
      */
