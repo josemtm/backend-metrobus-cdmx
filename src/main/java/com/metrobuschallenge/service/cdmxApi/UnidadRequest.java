@@ -22,7 +22,7 @@ public class UnidadRequest implements Serializable {
     @JsonProperty("trip_id")
     private Integer tripId;
 
-    public Unidad convertirUnidad() throws ParseException {
+    public Unidad convertirUnidad() {
         Unidad unidad = new Unidad();
         unidad.setId(id);
         if(tripId!=null){

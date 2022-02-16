@@ -1,10 +1,10 @@
 package com.metrobuschallenge.service;
 
-import com.metrobuschallenge.entity.Alcaldia;
-import com.metrobuschallenge.entity.Coordenadas;
-import com.metrobuschallenge.entity.Unidad;
+import com.metrobuschallenge.entity.*;
 import com.metrobuschallenge.exception.ObjectNotFoundException;
+import org.modelmapper.ModelMapper;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -19,9 +19,11 @@ public interface UnidadService {
 
     List<Unidad> saveAll(List<Unidad> unidades);
 
-    List<Unidad> findAllByDisponible(Boolean disponible);
+    List<UnidadDto> findAllByDisponible(Boolean disponible);
 
-    List<Unidad> findAllByAlcaldiaActual(String alcaldiaActual);
+    List<UnidadDto> findAllByAlcaldiaActual(String alcaldiaActual);
 
-    Coordenadas coordenadasUnidad(String id) throws ObjectNotFoundException;
+    String coordenadasUnidad(String id) throws ObjectNotFoundException;
+
+    List<UnidadDto> listMapper(List<Unidad> unidades);
 }

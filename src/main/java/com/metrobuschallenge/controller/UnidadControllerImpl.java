@@ -2,6 +2,7 @@ package com.metrobuschallenge.controller;
 
 import com.metrobuschallenge.entity.Coordenadas;
 import com.metrobuschallenge.entity.Unidad;
+import com.metrobuschallenge.entity.UnidadDto;
 import com.metrobuschallenge.exception.ObjectNotFoundException;
 import com.metrobuschallenge.service.UnidadServiceImpl;
 import io.swagger.v3.oas.annotations.Operation;
@@ -42,14 +43,14 @@ public class UnidadControllerImpl implements UnidadController{
                     content = {
                             @Content(
                                     mediaType = "application/json",
-                                    array = @ArraySchema(schema = @Schema(implementation = Unidad.class))
+                                    array = @ArraySchema(schema = @Schema(implementation = UnidadDto.class))
                             )
                     })
             }
     )
     @ResponseStatus(HttpStatus.OK)
     @RequestMapping(value = {"/disponibles"} ,method = {RequestMethod.GET}, produces = {"application/json"})
-    public List<Unidad> getUnidadesDisponibles() {
+    public List<UnidadDto> getUnidadesDisponibles() {
         return service.findAllByDisponible(true);
     }
 
@@ -57,12 +58,12 @@ public class UnidadControllerImpl implements UnidadController{
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200",
                     content = { @Content(mediaType = "application/json",
-                            schema = @Schema(implementation = Unidad.class)) }),
+                            schema = @Schema(implementation = String.class)) }),
             @ApiResponse(responseCode = "404", description = "Object not found",
                     content = @Content) })
     @ResponseStatus(HttpStatus.OK)
     @RequestMapping(value = {"/ubicacionporid/{id}"} ,method = {RequestMethod.GET}, produces = {"application/json"})
-    public Coordenadas ubicacionPorId(@PathVariable String id) throws ObjectNotFoundException {
+    public String ubicacionPorId(@PathVariable String id) throws ObjectNotFoundException {
         return this.service.coordenadasUnidad(id);
     }
 
@@ -76,14 +77,14 @@ public class UnidadControllerImpl implements UnidadController{
                     content = {
                             @Content(
                                     mediaType = "application/json",
-                                    array = @ArraySchema(schema = @Schema(implementation = Unidad.class))
+                                    array = @ArraySchema(schema = @Schema(implementation = UnidadDto.class))
                             )
                     })
             }
     )
     @ResponseStatus(HttpStatus.OK)
-    @RequestMapping(method = {RequestMethod.GET}, value = {"poralcaldia/{id}"}, produces = {"application/json"})
-    public List<Unidad> getUnidadesPorAlcaldia(String alcaldia) {
+    @RequestMapping(method = {RequestMethod.GET}, value = {"poralcaldia/{alcaldia}"}, produces = {"application/json"})
+    public List<UnidadDto> getUnidadesPorAlcaldia(String alcaldia) {
         return this.service.findAllByAlcaldiaActual(alcaldia);
     }
 }

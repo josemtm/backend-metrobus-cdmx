@@ -21,8 +21,6 @@ public class Unidad implements Serializable {
     private static final long serialVersionUID = 6269114156156283L;
 
     @Id
-    @GeneratedValue(generator="uuid2")
-    @GenericGenerator(name="uuid2",strategy = "uuid2")
     private String id;
     @ManyToOne
     private Alcaldia alcaldiaActual;

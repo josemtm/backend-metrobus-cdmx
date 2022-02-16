@@ -8,6 +8,7 @@ import com.metrobuschallenge.service.cdmxApi.UnidadRequest;
 import com.vividsolutions.jts.io.ParseException;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -26,9 +27,11 @@ public class EstadoServiceImpl implements EstadoService {
 
 
     @Override
-    @Scheduled(fixedDelay = 1000)
-    //@Transactional
+    @Scheduled(fixedDelay = 300000)
+    @Transactional
     public void determinarEstado() throws ThirdPartyRequestException, ParseException {
+        System.out.println("Peticion");
+        this.unidadService.deleteAll();
         List<UnidadRequest> unidadesRequest = this.cdmxApiService.getUnidadesApi().getResult().getRecords();
         List<Alcaldia> alcaldias = alcaldiaService.findAll();
         List<Unidad> unidades = determinarEstadoUnidades(unidadesRequest, alcaldias);

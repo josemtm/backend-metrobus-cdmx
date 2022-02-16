@@ -19,8 +19,6 @@ public class Alcaldia implements Serializable {
     private static final long serialVersionUID = 62691141566416283L;
 
     @Id
-    @GeneratedValue(generator="uuid2")
-    @GenericGenerator(name="uuid2",strategy = "uuid2")
     private String id;
     @NotNull(message = "Nombre es necesario")
     private String nombre;

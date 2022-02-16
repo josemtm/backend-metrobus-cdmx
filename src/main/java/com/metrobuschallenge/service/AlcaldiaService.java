@@ -1,6 +1,7 @@
 package com.metrobuschallenge.service;
 
 import com.metrobuschallenge.entity.Alcaldia;
+import com.metrobuschallenge.entity.AlcaldiaDto;
 import com.metrobuschallenge.exception.ObjectNotFoundException;
 
 import java.util.List;
@@ -15,7 +16,9 @@ public interface AlcaldiaService {
 
     List<Alcaldia> findAll();
 
-    List<Alcaldia> findAllByDisponible(Boolean disponible);
+    List<AlcaldiaDto> findAllByDisponible(Boolean disponible);
 
     List<Alcaldia> saveAll(List<Alcaldia> alcaldias);
+
+    List<AlcaldiaDto> listMapper(List<Alcaldia> alcaldias);
 }

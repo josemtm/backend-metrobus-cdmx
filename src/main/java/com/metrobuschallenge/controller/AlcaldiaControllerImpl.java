@@ -1,6 +1,7 @@
 package com.metrobuschallenge.controller;
 
 import com.metrobuschallenge.entity.Alcaldia;
+import com.metrobuschallenge.entity.AlcaldiaDto;
 import com.metrobuschallenge.service.AlcaldiaServiceImpl;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.ArraySchema;
@@ -42,14 +43,14 @@ public class AlcaldiaControllerImpl implements AlcaldiaController{
                     content = {
                             @Content(
                                     mediaType = "application/json",
-                                    array = @ArraySchema(schema = @Schema(implementation = Alcaldia.class))
+                                    array = @ArraySchema(schema = @Schema(implementation = AlcaldiaDto.class))
                             )
                     })
             }
     )
     @ResponseStatus(HttpStatus.OK)
     @RequestMapping(method = {RequestMethod.GET}, produces = {"application/json"})
-    public List<Alcaldia> getAlcadiasDisponible() {
+    public List<AlcaldiaDto> getAlcadiasDisponible() {
         return service.findAllByDisponible(true);
     }
 }

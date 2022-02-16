@@ -1,14 +1,16 @@
 package com.metrobuschallenge.service;
 
 import com.metrobuschallenge.entity.Alcaldia;
+import com.metrobuschallenge.entity.AlcaldiaDto;
 import com.metrobuschallenge.entity.Unidad;
 import com.metrobuschallenge.exception.ObjectNotFoundException;
 import com.metrobuschallenge.repository.AlcaldiaRepository;
+import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
+
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -53,12 +55,29 @@ public class AlcaldiaServiceImpl implements AlcaldiaService{
     }
 
     @Override
-    public List<Alcaldia> findAllByDisponible(Boolean disponible) {
-        return this.repositorio.findAllByDisponible(disponible);
+    public List<AlcaldiaDto> findAllByDisponible(Boolean disponible) {
+        List<Alcaldia> alcaldias = this.repositorio.findAllByDisponible(disponible);
+        List<AlcaldiaDto> alcaldiasDto = listMapper(alcaldias);
+        return alcaldiasDto;
+
     }
 
     @Override
     public List<Alcaldia> saveAll(List<Alcaldia> alcaldias) {
         return repositorio.saveAll(alcaldias);
     }
+
+    @Override
+    public List<AlcaldiaDto> listMapper(List<Alcaldia> alcaldias){
+        ModelMapper modelMapper = new ModelMapper();
+        List<AlcaldiaDto> alcaldiasDto = new ArrayList<>();
+        for (Alcaldia alcaldia:alcaldias
+        ) {
+            alcaldiasDto.add(modelMapper.map(alcaldia, AlcaldiaDto.class));
+        }
+        return alcaldiasDto;
+    }
+
+
+
 }
