@@ -128,22 +128,22 @@ que generara el jar del proyecto en target/spring-challenge.jar
    - Devuelve una lista de unidades cuya ubicacion geografica se encuentre dentro del limite poligonal geografico de una alcaldia.
    - El parametro alcaldia se refiere al nombre de la alcadia y puede ser extraido de la siguiente lista:
 
-   Alvaro Obregon
-   Azcapotzalco
-   Benito Juarez
-   Coyoaca
-   Cuajimalpa de Morelos
-   Cuauhtemoc
-   Gustavo A Madero
-   Iztacalco
-   Iztapalapa
-   La Magdalena Contreras
-   Miguel Hidalgo
-   Milpa Alta
-   Tlahuac
-   Tlalpan
-   Venustiano Carranza
-   Xochimilco
+- Alvaro Obregon
+ - Azcapotzalco
+  - Benito Juarez
+  - Coyoaca
+  - Cuajimalpa de Morelos
+  - Cuauhtemoc
+  - Gustavo A Madero
+  - Iztacalco
+  - Iztapalapa
+  - La Magdalena Contreras
+  - Miguel Hidalgo
+  - Milpa Alta
+  - Tlahuac
+  - Tlalpan
+  - Venustiano Carranza
+  - Xochimilco
 
 5. Si se necesita revisar el estado de la BD embebida  se puede consultar en el siguiente path 
 
