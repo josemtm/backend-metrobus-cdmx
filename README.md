@@ -42,7 +42,7 @@ las tecnologias seleccionadas para realizar el proyecto son:
 - Swagger
    Para la documentacion de controladores.
 - Angular contributing team standar
-   Para el control de versiones se implemento el standar del equipo de Angular [JDK 1.8](https://github.com/angular/angular/blob/22b96b9/CONTRIBUTING.md#-commit-message-guidelines)
+   Para el control de versiones se implemento el standar del equipo de Angular [Git standar angular team](https://github.com/angular/angular/blob/22b96b9/CONTRIBUTING.md#-commit-message-guidelines)
 - DDD o domain driven design se implemento pero al ser el contexto del problema bastante simple el context boundary y el ubiquitous language no tienen necesidad de ser explicados pero igualmente se anexaran diagramas de diseño con partes especificas de la solucion en codigo y no solo del contexto para aprovechar que ya se estan anexando
 
 ## Requisitos
