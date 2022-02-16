@@ -1,6 +1,7 @@
 package com.metrobuschallenge.service;
 
 import com.metrobuschallenge.entity.Alcaldia;
+import com.metrobuschallenge.entity.Unidad;
 import com.metrobuschallenge.exception.ObjectNotFoundException;
 import com.metrobuschallenge.repository.AlcaldiaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -48,7 +49,7 @@ public class AlcaldiaServiceImpl implements AlcaldiaService{
 
     @Override
     public List<Alcaldia> findAll() {
-        return this.repositorio.findAll(/* sortByIdAsc()*/);
+        return this.repositorio.findAll();
     }
 
     @Override
@@ -56,5 +57,8 @@ public class AlcaldiaServiceImpl implements AlcaldiaService{
         return this.repositorio.findAllByDisponible(disponible);
     }
 
-
+    @Override
+    public List<Alcaldia> saveAll(List<Alcaldia> alcaldias) {
+        return repositorio.saveAll(alcaldias);
+    }
 }

@@ -8,4 +8,6 @@ import java.util.List;
 
 public interface AlcaldiaRepository extends JpaRepository<Alcaldia, String> {
     List<Alcaldia> findAllByDisponible(Boolean disponible);
+    Alcaldia findByNombre(String nombre);
+
 }

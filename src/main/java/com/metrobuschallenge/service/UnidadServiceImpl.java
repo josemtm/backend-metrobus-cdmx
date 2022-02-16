@@ -1,12 +1,12 @@
 package com.metrobuschallenge.service;
 
 import com.metrobuschallenge.entity.Alcaldia;
+import com.metrobuschallenge.entity.Coordenadas;
 import com.metrobuschallenge.entity.Unidad;
 import com.metrobuschallenge.exception.ObjectNotFoundException;
+import com.metrobuschallenge.repository.AlcaldiaRepository;
 import com.metrobuschallenge.repository.UnidadRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -14,10 +14,12 @@ import java.util.Optional;
 
 @Service
 public class UnidadServiceImpl implements UnidadService{
+    private final AlcaldiaRepository alcaldiaRepository;
     private final UnidadRepository repositorio;
 
     @Autowired
-    public UnidadServiceImpl(UnidadRepository repositorio) {
+    public UnidadServiceImpl(AlcaldiaRepository alcaldiaRepository, UnidadRepository repositorio) {
+        this.alcaldiaRepository = alcaldiaRepository;
         this.repositorio = repositorio;
 
     }
@@ -59,8 +61,15 @@ public class UnidadServiceImpl implements UnidadService{
     }
 
     @Override
-    public List<Unidad> findAllByAlcaldia(Alcaldia alcaldia) {
-        return this.repositorio.findAllByAlcaldia(alcaldia);
+    public List<Unidad> findAllByAlcaldiaActual(String alcaldia) {
+        Alcaldia alcaldiaRequest =this.alcaldiaRepository.findByNombre(alcaldia);
+        return this.repositorio.findAllByAlcaldiaActual(alcaldiaRequest);
+    }
+
+    @Override
+    public Coordenadas coordenadasUnidad(String id) throws ObjectNotFoundException {
+        Optional<Unidad> unidad = this.findOne(id);
+        return new Coordenadas(unidad.get().getLatitud(), unidad.get().getLongitud());
     }
 
 

@@ -8,5 +8,5 @@ import java.util.List;
 
 public interface UnidadRepository extends JpaRepository<Unidad, String> {
     List<Unidad> findAllByDisponible(Boolean disponible);
-    List<Unidad> findAllByAlcaldia(Alcaldia alcaldia);
+    List<Unidad> findAllByAlcaldiaActual(Alcaldia alcaldiaActual);
 }

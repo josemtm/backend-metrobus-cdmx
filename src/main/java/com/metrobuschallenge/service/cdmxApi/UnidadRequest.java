@@ -1,32 +1,37 @@
 package com.metrobuschallenge.service.cdmxApi;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.metrobuschallenge.entity.Punto;
 import com.metrobuschallenge.entity.Unidad;
-import com.vividsolutions.jts.geom.Geometry;
+import com.vividsolutions.jts.geom.Coordinate;
+import com.vividsolutions.jts.geom.GeometryFactory;
 import com.vividsolutions.jts.geom.Point;
 import com.vividsolutions.jts.io.ParseException;
-import com.vividsolutions.jts.io.WKTReader;
 import lombok.Data;
 
+import java.io.Serializable;
+
 @Data
-public class UnidadRequest {
+public class UnidadRequest implements Serializable {
+    private static final long serialVersionUID = 6269117485667756413L;
 
     private String id;
-    @JsonProperty("geograpich_point")
-    private String ubicacion;
+    @JsonProperty("position_latitude")
+    private Double latitud;
+    @JsonProperty("position_longitude")
+    private Double longitud;
     @JsonProperty("trip_id")
     private Integer tripId;
 
-    Unidad convertirUnidad() throws ParseException {
+    public Unidad convertirUnidad() throws ParseException {
         Unidad unidad = new Unidad();
         unidad.setId(id);
         if(tripId!=null){
             unidad.setDisponible(true);
+        }else{
+            unidad.setDisponible(false);
         }
-        Punto punto = new Punto();
-        punto.setPoint((Point) new WKTReader().read(ubicacion));
-        unidad.setUbicacion(punto);
+        unidad.setLatitud(latitud);
+        unidad.setLongitud(longitud);
         return unidad;
     }
 

@@ -1,6 +1,7 @@
 package com.metrobuschallenge.service;
 
 import com.metrobuschallenge.entity.Alcaldia;
+import com.metrobuschallenge.entity.Coordenadas;
 import com.metrobuschallenge.entity.Unidad;
 import com.metrobuschallenge.exception.ObjectNotFoundException;
 
@@ -20,5 +21,7 @@ public interface UnidadService {
 
     List<Unidad> findAllByDisponible(Boolean disponible);
 
-    List<Unidad> findAllByAlcaldia(Alcaldia alcaldia);
+    List<Unidad> findAllByAlcaldiaActual(String alcaldiaActual);
+
+    Coordenadas coordenadasUnidad(String id) throws ObjectNotFoundException;
 }

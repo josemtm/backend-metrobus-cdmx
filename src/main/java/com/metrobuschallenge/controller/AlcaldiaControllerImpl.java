@@ -1,12 +1,13 @@
 package com.metrobuschallenge.controller;
 
 import com.metrobuschallenge.entity.Alcaldia;
+import com.metrobuschallenge.service.AlcaldiaServiceImpl;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.ArraySchema;
 import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.media.Schema;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
-import io.swagger.v3.oas.annotations.responses.ApiResponses;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -24,7 +25,13 @@ import java.util.List;
 @RestController
 @RequestMapping(value = {"/codechallenge/api/v1/alcaldias"}, produces = {"application/json"})
 public class AlcaldiaControllerImpl implements AlcaldiaController{
+    private final AlcaldiaServiceImpl service;
 
+    @Autowired
+    public AlcaldiaControllerImpl(AlcaldiaServiceImpl service) {
+        this.service = service;
+
+    }
     @Override
     @Operation(
             summary = "Busca lista de alcaldia",
@@ -43,6 +50,6 @@ public class AlcaldiaControllerImpl implements AlcaldiaController{
     @ResponseStatus(HttpStatus.OK)
     @RequestMapping(method = {RequestMethod.GET}, produces = {"application/json"})
     public List<Alcaldia> getAlcadiasDisponible() {
-        return null;
+        return service.findAllByDisponible(true);
     }
 }
