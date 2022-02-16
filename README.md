@@ -21,6 +21,9 @@ siguientes características:
  Obtener una lista de alcaldías disponibles
  Obtener la lista de unidades que se encuentren dentro de una alcaldía
 
+NOTA IMPORTANTE: se tomo como que una unidad activa es aquella con un trip_id asignado, igualmente una alcaldia activa es aquella con unidades con un viaje asignado que esten en la alcaldia
+igualmente se esta a la espera de feedback de si las condiciones no son las señaladas se modificara en una version posterior
+
 ## Tecnologias
 
 las tecnologias seleccionadas para realizar el proyecto son:
