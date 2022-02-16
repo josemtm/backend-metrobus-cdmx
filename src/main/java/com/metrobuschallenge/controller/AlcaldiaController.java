@@ -1,10 +1,14 @@
 package com.metrobuschallenge.controller;
 
-import com.metrobuschallenge.entity.Alcaldia;
-import com.metrobuschallenge.entity.AlcaldiaDto;
+import com.metrobuschallenge.dto.AlcaldiaDto;
 
 import java.util.List;
-
+/**
+ * Interface de controlador de alcaldias
+ *
+ * @author Jose Torrealba
+ *
+ */
 public interface AlcaldiaController {
     List<AlcaldiaDto> getAlcadiasDisponible();
 }

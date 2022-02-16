@@ -1,7 +1,7 @@
 package com.metrobuschallenge.service;
 
 import com.metrobuschallenge.entity.Alcaldia;
-import com.metrobuschallenge.entity.AlcaldiaDto;
+import com.metrobuschallenge.dto.AlcaldiaDto;
 import com.metrobuschallenge.entity.Unidad;
 import com.metrobuschallenge.exception.ObjectNotFoundException;
 import com.metrobuschallenge.repository.AlcaldiaRepository;
@@ -13,7 +13,12 @@ import org.springframework.stereotype.Service;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
-
+/**
+ * Clases de servicio para alcaldia
+ *
+ * @author Jose Torrealba
+ *
+ */
 @Service
 public class AlcaldiaServiceImpl implements AlcaldiaService{
     private final AlcaldiaRepository repositorio;
@@ -53,7 +58,12 @@ public class AlcaldiaServiceImpl implements AlcaldiaService{
     public List<Alcaldia> findAll() {
         return this.repositorio.findAll();
     }
-
+    /**
+     *  Busca lista de alcaldias disponibles
+     * @param disponible booleano para la busqueda
+     * @return respuesta mapeada a dto de unidades disponibles
+     * @since 1.0
+     */
     @Override
     public List<AlcaldiaDto> findAllByDisponible(Boolean disponible) {
         List<Alcaldia> alcaldias = this.repositorio.findAllByDisponible(disponible);
@@ -66,7 +76,12 @@ public class AlcaldiaServiceImpl implements AlcaldiaService{
     public List<Alcaldia> saveAll(List<Alcaldia> alcaldias) {
         return repositorio.saveAll(alcaldias);
     }
-
+    /**
+     *  Mapper de Dto para la peticion de alcaldias
+     * @param alcaldias lista de alcaldias a mapear
+     * @return lista de Dto de alcaldias mapeada
+     * @since 1.0
+     */
     @Override
     public List<AlcaldiaDto> listMapper(List<Alcaldia> alcaldias){
         ModelMapper modelMapper = new ModelMapper();
@@ -77,7 +92,21 @@ public class AlcaldiaServiceImpl implements AlcaldiaService{
         }
         return alcaldiasDto;
     }
+    /**
+     *  Metodo para determinar el estado de disponibilidad de una lista de alcaldias
+     * @param alcaldias lista de alcaldias a mapear
+     * @param unidades ya procesadas para ser usadas en alcaldias
+     * @since 1.0
+     */
+    @Override
+    public void determinarEstadoAlcaldias(List<Alcaldia> alcaldias, List<Unidad> unidades){
+        for (Alcaldia alcaldia : alcaldias){
+            boolean esDisponible = unidades.stream()
+                    .anyMatch(p -> p.getAlcaldiaActual().getClass().equals(alcaldia.getClass()));
+            if (esDisponible) alcaldia.setDisponible(true);
+            else alcaldia.setDisponible(false);
+        }
 
-
+    }
 
 }

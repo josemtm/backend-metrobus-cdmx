@@ -1,7 +1,6 @@
 package com.metrobuschallenge.controller;
 
-import com.metrobuschallenge.entity.Alcaldia;
-import com.metrobuschallenge.entity.AlcaldiaDto;
+import com.metrobuschallenge.dto.AlcaldiaDto;
 import com.metrobuschallenge.service.AlcaldiaServiceImpl;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.ArraySchema;

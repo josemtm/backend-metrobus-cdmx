@@ -1,4 +1,4 @@
-package com.metrobuschallenge.entity;
+package com.metrobuschallenge.dto;
 
 import lombok.Data;
 import org.hibernate.annotations.GenericGenerator;
@@ -9,6 +9,12 @@ import javax.persistence.ManyToOne;
 import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 
+/**
+ * Clase DTO para unidad
+ *
+ * @author Jose Torrealba
+ *
+ */
 @Data
 public class UnidadDto implements Serializable {
 

@@ -1,8 +1,6 @@
 package com.metrobuschallenge.controller;
 
-import com.metrobuschallenge.entity.Coordenadas;
-import com.metrobuschallenge.entity.Unidad;
-import com.metrobuschallenge.entity.UnidadDto;
+import com.metrobuschallenge.dto.UnidadDto;
 import com.metrobuschallenge.exception.ObjectNotFoundException;
 import com.metrobuschallenge.service.UnidadServiceImpl;
 import io.swagger.v3.oas.annotations.Operation;

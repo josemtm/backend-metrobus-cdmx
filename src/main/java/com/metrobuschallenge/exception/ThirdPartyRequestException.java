@@ -5,7 +5,12 @@
  */
 package com.metrobuschallenge.exception;
 
-
+/**
+ * Exception class
+ *
+ * @author Jose Torrealba
+ *
+ */
 public class ThirdPartyRequestException extends Exception {
 
     private static final long serialVersionUID = 75178919869352660L;

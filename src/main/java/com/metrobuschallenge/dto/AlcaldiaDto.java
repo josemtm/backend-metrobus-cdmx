@@ -1,10 +1,15 @@
-package com.metrobuschallenge.entity;
+package com.metrobuschallenge.dto;
 
 import lombok.Data;
 
 import java.io.Serializable;
 
-
+/**
+ * Clase DTO para alcaldia
+ *
+ * @author Jose Torrealba
+ *
+ */
 @Data
 public class AlcaldiaDto implements Serializable {
 

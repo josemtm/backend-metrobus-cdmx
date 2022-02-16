@@ -1,10 +1,14 @@
-package com.metrobuschallenge.service.cdmxApi;
+package com.metrobuschallenge.cdmxApi;
 
 import lombok.Data;
 
 import java.io.Serializable;
-import java.util.List;
-
+/**
+ * Clases de mapeo
+ *
+ * @author Jose Torrealba
+ *
+ */
 @Data
 public class apiRequest implements Serializable {
 

@@ -22,15 +22,32 @@ public class Unidad implements Serializable {
 
     @Id
     private String id;
+    /**
+     * Alcaldia en la que esta ubicada una unidad
+     */
     @ManyToOne
     private Alcaldia alcaldiaActual;
+    /**
+     * Parte del punto espacial geografco
+     */
     @NotNull(message = "latitud es necesaria")
     private Double latitud;
+    /**
+     * Parte del punto espacial geografco
+     */
     @NotNull(message = "longitud es necesaria")
     private Double longitud;
+    /**
+     * Disponibilidad inferida de si posee un trip id en la peticion
+     */
     @NotNull(message = "Disponibilidad es necesaria")
     private Boolean disponible;
-
+    /**
+     *  Metodo usado para determinar alcaldia en la que se encuentra una unidad, se determina por medio una operacion geometrica
+     *  que verifica si un punto de coordenadas se encuentra dentro de los limites poligonales de al alcaldia
+     * @param alcaldias lista de tipo Alcaldia
+     * @since 1.0
+     */
     public void determinarAlcaldia(List<Alcaldia> alcaldias) throws ParseException {
         for (Alcaldia alcaldia:alcaldias
              ) {
