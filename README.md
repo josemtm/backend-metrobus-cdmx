@@ -53,7 +53,7 @@ Los requisitos minimos para correr el proyectos son los siguientes al ser un pro
 
 ## Sobre el proyecto
 
-El proyecto funciona exponiendo dos rutas endpoint para realizar las peticiones exigidas en el challange, el backend por medio de un servicio chrono de estado cada x cantidad de tiempo configurable realiza peticiones a la ciudad de mexico para conocer el estado de las unidades y alcaldias
+El proyecto funciona exponiendo dos rutas endpoint para realizar las peticiones exigidas en el challange, el backend por medio de un servicio chrono de estado cada x cantidad de tiempo(configurable en el servicio) realiza peticiones a la ciudad de mexico para conocer el estado de las unidades y alcaldias
 
 Se trato de trabajar un codigo limpio siguiendo las mejores practicas y se tuvo en cuenta la funcionabilidad y escabilidad, por sobre el codigo muy complejo y breve de implementar lo que dio como resultado un proyecto que se considera junto a los comentarios que se dejaron facil de comprender
 

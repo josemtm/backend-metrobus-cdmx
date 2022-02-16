@@ -37,7 +37,7 @@ public class EstadoServiceImpl implements EstadoService {
     @Scheduled(fixedDelay = 300000)
     @Transactional
     public void determinarEstado() throws ThirdPartyRequestException, ParseException {
-        System.out.println("Peticion");
+        System.out.println("Peticion realiza api CDMX");
         this.unidadService.deleteAll();
         List<UnidadRequest> unidadesRequest = this.cdmxApiService.getUnidadesApi().getResult().getRecords();
         List<Alcaldia> alcaldias = alcaldiaService.findAll();
