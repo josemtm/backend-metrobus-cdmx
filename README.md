@@ -37,7 +37,7 @@ igualmente se esta a la espera de feedback de si las condiciones no son las señ
 3. docs:Se arreglo la url para entrar al swagger en la documentacion
 
     - Aqui en la documentacion esta apuntada la url correcta para entra a [Swagger](http://localhost:8080/swagger-ui/index.html)
-    - 
+
 4. docs:Se retiro el endpoint de h2 de la documentacion
 
     - Al ser una base de datos que vive en el proceso de ejecucion el panel web no puede ser accedido desde cuando se corre la aplicacon desde docker, aunque funcione corriendo el proyecto normal de maven para evitar cualquier inconveniente se retiro su endpoint de la documentacion.   
