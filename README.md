@@ -37,6 +37,11 @@ igualmente se esta a la espera de feedback de si las condiciones no son las señ
 3. docs:Se arreglo la url para entrar al swagger en la documentacion
 
     - Aqui en la documentacion esta apuntada la url correcta para entra a [Swagger](http://localhost:8080/swagger-ui/index.html)
+    - 
+4. docs:Se retiro el endpoint de h2 de la documentacion
+
+    - Al ser una base de datos que vive en el proceso de ejecucion el panel web no puede ser accedido desde cuando se corre la aplicacon desde docker, aunque funcione corriendo el proyecto normal de maven para evitar cualquier inconveniente se retiro su endpoint de la documentacion.   
+
 ## Tecnologias
 
 las tecnologias seleccionadas para realizar el proyecto son:
@@ -157,13 +162,7 @@ que generara el jar del proyecto en target/spring-challenge.jar
   - Tlalpan
   - Venustiano Carranza
   - Xochimilco
-
-5. Si se necesita revisar el estado de la BD embebida  se puede consultar en el siguiente path 
-
-   - /h2-console/
-   - ex: http://localhost:8080/h2-console/
-   - username: sa
-   - password: password
+  
 
 
 
