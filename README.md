@@ -32,7 +32,7 @@ igualmente se esta a la espera de feedback de si las condiciones no son las señ
 
 2. Fix:Endpoint de unidades por alcaldia devuelve siempre las mismas unidades
 
-    -Se arreglo por medio de agregar la anotacion @Pathvariable que falto para reconocer el id de la peticion
+    -Se arreglo por medio de agregar la anotacion @Pathvariable que falto para reconocer el alcaldia de la peticion por eso devolvia la misma
 
 3. docs:Se arreglo la url para entrar al swagger en la documentacion
 
@@ -40,7 +40,7 @@ igualmente se esta a la espera de feedback de si las condiciones no son las señ
 
 4. docs:Se retiro el endpoint de h2 de la documentacion
 
-    - Al ser una base de datos que vive en el proceso de ejecucion el panel web no puede ser accedido desde cuando se corre la aplicacion desde docker, aunque funcione corriendo el proyecto normal de maven para evitar cualquier inconveniente se retiro su endpoint de la documentacion.   
+    - Al ser una base de datos que vive en el proceso de ejecucion el panel web no puede ser accedido cuando se corre la aplicacion desde docker, aunque funcione corriendo el proyecto normal de maven para evitar cualquier inconveniente se retiro su endpoint de la documentacion.   
 
 ## Tecnologias
 
