@@ -24,6 +24,19 @@ siguientes características:
 NOTA IMPORTANTE: se tomo como que una unidad activa es aquella con un trip_id asignado, igualmente una alcaldia activa es aquella con unidades con un viaje asignado que esten en la alcaldia
 igualmente se esta a la espera de feedback de si las condiciones no son las señaladas se modificara en una version posterior
 
+## Actualizacion v1.2
+
+1. Fix:Endpoint para ubicacion de unidades por id solo devolvia coordenadas y no alcaldia
+
+    -Se agrego un DTO para mapear la alcadia y unidades 
+
+2. Fix:Endpoint de unidades por alcaldia devuelve siempre las mismas unidades
+
+    -Se arreglo por medio de agregar la anotacion @Pathvariable que falto para reconocer el id de la peticion
+
+3. docs:Se arreglo la url para entrar al swagger en la documentacion
+
+    - Aqui en la documentacion esta apuntada la url correcta para entra a [Swagger](http://localhost:8080/swagger-ui/index.html)
 ## Tecnologias
 
 las tecnologias seleccionadas para realizar el proyecto son:
@@ -101,8 +114,8 @@ que generara el jar del proyecto en target/spring-challenge.jar
 
 - Se implemento swagger para generar la documentacion de las peticiones al crud luego de levantar el proyecto se puede solicitar la informacion detallada de los endpoint en la siguiente url.
 
-   - /swagger-ui
-   - ex: http://localhost:8080/swagger-ui
+   - /swagger-ui/index.html
+   - ex: http://localhost:8080/swagger-ui/index.html
 
 
 1. Alcaldias disponibles

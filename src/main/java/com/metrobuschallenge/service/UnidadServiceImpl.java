@@ -1,6 +1,7 @@
 package com.metrobuschallenge.service;
 
 import com.metrobuschallenge.cdmxApi.UnidadRequest;
+import com.metrobuschallenge.dto.UbicacionDto;
 import com.metrobuschallenge.dto.UnidadDto;
 import com.metrobuschallenge.entity.*;
 import com.metrobuschallenge.exception.ObjectNotFoundException;
@@ -84,7 +85,9 @@ public class UnidadServiceImpl implements UnidadService{
      */
     @Override
     public List<UnidadDto> findAllByAlcaldiaActual(String alcaldia) {
+        System.out.println(alcaldia);
         Alcaldia alcaldiaRequest =this.alcaldiaRepository.findByNombre(alcaldia);
+        System.out.println(alcaldiaRequest.getNombre());
         List<Unidad> unidades = this.repositorio.findAllByAlcaldiaActual(alcaldiaRequest);
         return listMapper(unidades);
     }
@@ -95,10 +98,15 @@ public class UnidadServiceImpl implements UnidadService{
      * @since 1.0
      */
     @Override
-    public String coordenadasUnidad(String id) throws ObjectNotFoundException {
+    public UbicacionDto coordenadasUnidad(String id) throws ObjectNotFoundException {
         Optional<Unidad> unidad = this.findOne(id);
-        Point p = new GeometryFactory().createPoint(new Coordinate(unidad.get().getLatitud(), unidad.get().getLongitud()));
-        return p.toText();
+        if(unidad.isPresent()){
+            return ubicacionDtoMapper(unidad.get());
+        }else{
+            throw new ObjectNotFoundException("Objeto no encontrado");
+        }
+
+
     }
     /**
      *  Mapper de Dto para la peticion de unidades
@@ -116,6 +124,18 @@ public class UnidadServiceImpl implements UnidadService{
         }
         return unidadesDto;
     }
+
+    @Override
+    public UbicacionDto ubicacionDtoMapper(Unidad unidad){
+        UbicacionDto object = new UbicacionDto();
+        Point p = new GeometryFactory().createPoint(new Coordinate(unidad.getLatitud(), unidad.getLongitud()));
+        object.setCoordenadas(p.toText());
+        if(unidad.getAlcaldiaActual()!=null){
+            object.setAlcaldia(unidad.getAlcaldiaActual().getNombre());
+        }
+        return object;
+    }
+
     /**
      *  Metodo para crear conjunto de unidades proveniente de api
      * @param unidadesRequest unidades primitivas

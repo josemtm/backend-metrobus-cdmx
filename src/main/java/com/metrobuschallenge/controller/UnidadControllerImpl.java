@@ -1,5 +1,6 @@
 package com.metrobuschallenge.controller;
 
+import com.metrobuschallenge.dto.UbicacionDto;
 import com.metrobuschallenge.dto.UnidadDto;
 import com.metrobuschallenge.exception.ObjectNotFoundException;
 import com.metrobuschallenge.service.UnidadServiceImpl;
@@ -56,12 +57,12 @@ public class UnidadControllerImpl implements UnidadController{
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200",
                     content = { @Content(mediaType = "application/json",
-                            schema = @Schema(implementation = String.class)) }),
+                            schema = @Schema(implementation = UbicacionDto.class)) }),
             @ApiResponse(responseCode = "404", description = "Object not found",
                     content = @Content) })
     @ResponseStatus(HttpStatus.OK)
     @RequestMapping(value = {"/ubicacionporid/{id}"} ,method = {RequestMethod.GET}, produces = {"application/json"})
-    public String ubicacionPorId(@PathVariable String id) throws ObjectNotFoundException {
+    public UbicacionDto ubicacionPorId(@PathVariable String id) throws ObjectNotFoundException {
         return this.service.coordenadasUnidad(id);
     }
 
@@ -82,7 +83,7 @@ public class UnidadControllerImpl implements UnidadController{
     )
     @ResponseStatus(HttpStatus.OK)
     @RequestMapping(method = {RequestMethod.GET}, value = {"poralcaldia/{alcaldia}"}, produces = {"application/json"})
-    public List<UnidadDto> getUnidadesPorAlcaldia(String alcaldia) {
+    public List<UnidadDto> getUnidadesPorAlcaldia(@PathVariable String alcaldia) {
         return this.service.findAllByAlcaldiaActual(alcaldia);
     }
 }

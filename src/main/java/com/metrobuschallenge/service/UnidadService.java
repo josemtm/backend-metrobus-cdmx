@@ -1,6 +1,7 @@
 package com.metrobuschallenge.service;
 
 import com.metrobuschallenge.cdmxApi.UnidadRequest;
+import com.metrobuschallenge.dto.UbicacionDto;
 import com.metrobuschallenge.dto.UnidadDto;
 import com.metrobuschallenge.entity.*;
 import com.metrobuschallenge.exception.ObjectNotFoundException;
@@ -29,9 +30,11 @@ public interface UnidadService {
 
     List<UnidadDto> findAllByAlcaldiaActual(String alcaldiaActual);
 
-    String coordenadasUnidad(String id) throws ObjectNotFoundException;
+    UbicacionDto coordenadasUnidad(String id) throws ObjectNotFoundException;
 
     List<UnidadDto> listMapper(List<Unidad> unidades);
 
     List<Unidad> determinarEstadoUnidades(List<UnidadRequest> unidadesRequest, List<Alcaldia> alcaldias) throws ParseException;
+
+    UbicacionDto ubicacionDtoMapper(Unidad unidad);
 }
